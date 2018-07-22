@@ -27,10 +27,10 @@ clean:
 	${KLEE_HOME}/bin/klee -search=dfs -output-dir="$$OUTPUT_DIR" $$EXTRA_OPTIONS -precision $<
 
 .bc.dklee:
-	EXTRA_OPTIONS="-debug-precision" OUTPUT_DIR="$@" make $*.klee
+	EXTRA_OPTIONS="-debug-precision $$EXTRA_OPTIONS" OUTPUT_DIR="$@" make $*.klee
 
 .bc.loop:
-	EXTRA_OPTIONS="-loop-breaking" OUTPUT_DIR="$@" make $*.klee
+	EXTRA_OPTIONS="-loop-breaking $$EXTRA_OPTIONS" OUTPUT_DIR="$@" make $*.klee
 
 .bc.dloop:
-	EXTRA_OPTIONS="-loop-breaking -debug-precision" OUTPUT_DIR="$@" make $*.klee
+	EXTRA_OPTIONS="-loop-breaking -debug-precision $$EXTRA_OPTIONS" OUTPUT_DIR="$@" make $*.klee
